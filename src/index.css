@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F8F5F1;
+  --color-linen: #EDE0D4;
+  --color-taupe: #C9B9AE;
+  --color-sand: #B09070;
+  --color-sand-dark: #8A6E50;
+  --color-ink: #1C1815;
+  --color-ink-muted: #4A3F38;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F8F5F1;
+  color: #1C1815;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #EDE0D4;
+}
+::-webkit-scrollbar-thumb {
+  background: #B09070;
+}
