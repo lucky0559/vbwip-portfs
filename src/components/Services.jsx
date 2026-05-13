@@ -1,35 +1,36 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { Building2, Layers, Map, Landmark, Award, Briefcase } from 'lucide-react'
 import { useInView } from '../hooks/useParallax'
 
 const services = [
   {
-    icon: '◻',
+    Icon: Building2,
     title: 'Architectural Design',
     body: 'From concept to construction documentation — residential, cultural, civic, and hospitality projects of all scales.',
   },
   {
-    icon: '◈',
+    Icon: Layers,
     title: 'Interior Architecture',
     body: 'Spatial planning, material selection, and detailing that transforms interiors into cohesive environments.',
   },
   {
-    icon: '◇',
+    Icon: Map,
     title: 'Master Planning',
     body: 'Urban and landscape master planning that balances programme, ecology, movement, and community life.',
   },
   {
-    icon: '◉',
+    Icon: Landmark,
     title: 'Heritage & Renovation',
     body: 'Sensitive interventions into existing fabric — restoration, adaptive reuse, and extension of historic buildings.',
   },
   {
-    icon: '△',
+    Icon: Award,
     title: 'Competition & Research',
     body: 'Speculative and competition work exploring the boundaries of what architecture can be and do.',
   },
   {
-    icon: '◎',
+    Icon: Briefcase,
     title: 'Consultancy',
     body: 'Design reviews, expert witness, feasibility studies, and advisory services for developers and institutions.',
   },
@@ -39,7 +40,6 @@ export default function Services() {
   const sectionRef = useRef(null)
   const { ref: headRef, inView } = useInView()
 
-  // Watermark drifts rightward as you scroll through
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
@@ -49,16 +49,15 @@ export default function Services() {
 
   return (
     <section id="services" ref={sectionRef} className="bg-[#EDE0D4] py-44 overflow-hidden relative">
-      {/* Drifting watermark */}
       <motion.div
         aria-hidden
         style={{ x: markX }}
-        className="absolute top-1/2 right-0 -translate-y-1/2 font-['Cormorant_Garamond'] text-[18vw] font-light leading-none text-[#C9B9AE]/30 select-none pointer-events-none whitespace-nowrap"
+        className="absolute top-1/2 right-0 -translate-y-1/2 font-['Cormorant_Garamond'] text-[12vw] font-light leading-none text-[#C9B9AE]/30 select-none pointer-events-none whitespace-nowrap"
       >
         Services
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-8 md:px-16 relative z-10">
+      <div className="max-w-6xl mx-auto px-8 md:px-16 relative z-10">
 
         <div ref={headRef} className="mb-24">
           <motion.div
@@ -67,7 +66,7 @@ export default function Services() {
             transition={{ duration: 0.95 }}
           >
             <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[#B09070] mb-5">
-              — What We Offer
+              — What I Offer
             </p>
             <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] text-[#1C1815]">
               Services
@@ -83,10 +82,10 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.8, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-[#EDE0D4] px-12 py-14 group hover:bg-[#F8F5F1] transition-colors duration-500"
+              className="bg-[#EDE0D4] px-12 py-14 group hover:bg-[#F8F5F1] transition-colors duration-500 cursor-pointer"
             >
-              <span className="block font-['Cormorant_Garamond'] text-3xl text-[#B09070] mb-8 group-hover:scale-110 transition-transform duration-500 origin-left">
-                {s.icon}
+              <span className="block text-[#B09070] mb-8 group-hover:scale-110 transition-transform duration-500 origin-left">
+                <s.Icon size={26} strokeWidth={1.25} />
               </span>
               <h3 className="font-['Cormorant_Garamond'] text-xl font-light text-[#1C1815] mb-5">
                 {s.title}

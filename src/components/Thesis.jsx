@@ -83,12 +83,12 @@ export default function Thesis() {
       </ParallaxBand>
 
       {/* Description */}
-      <div className="bg-[#F8F5F1] py-44">
-        <div className="max-w-7xl mx-auto px-8 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-40">
+      <div className="bg-[#F8F5F1] py-20 md:py-28">
+        <div className="px-8 md:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,400px)_1fr] gap-16 lg:gap-20">
 
             {/* Left — sticky info */}
-            <div ref={headRef} className="lg:sticky lg:top-36 lg:self-start pb-10">
+            <div ref={headRef} className="lg:sticky lg:top-24 lg:self-start pb-8">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -113,7 +113,7 @@ export default function Thesis() {
                 </p>
 
                 {/* Stats */}
-                <div className="grid grid-cols-2 gap-8 pt-10 border-t border-[#C9B9AE]/40">
+                <div className="grid grid-cols-2 gap-6 pt-8 border-t border-[#C9B9AE]/40">
                   {[
                     { v: '2.43 ha', l: 'Total Lot Area' },
                     { v: '3F + RD', l: 'Commercial Hub' },
@@ -135,10 +135,12 @@ export default function Thesis() {
             </div>
 
             {/* Right — space renders */}
-            <div className="space-y-8">
-              {spaces.map((sp, i) => (
-                <SpaceCard key={sp.label} {...sp} index={i} />
-              ))}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="col-span-2">
+                <SpaceCard {...spaces[0]} index={0} />
+              </div>
+              <SpaceCard {...spaces[1]} index={1} />
+              <SpaceCard {...spaces[2]} index={2} />
             </div>
 
           </div>
@@ -146,8 +148,8 @@ export default function Thesis() {
       </div>
 
       {/* Design objectives band */}
-      <div className="bg-[#EDE0D4] py-24">
-        <div className="max-w-7xl mx-auto px-8 md:px-16">
+      <div className="bg-[#EDE0D4] py-16">
+        <div className="px-8 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#C9B9AE]/30">
             {[
               { n: '01', t: 'Cultural Exhibition', b: 'Exhibit the culture and local products of Malolos, rooting the building in its community identity.' },

@@ -6,22 +6,22 @@ const principles = [
   {
     number: '01',
     title: 'Material Honesty',
-    body: 'We let materials speak their own language — concrete remains concrete, timber stays timber. Authenticity in material creates authenticity in space.',
+    body: 'I let materials speak their own language — concrete remains concrete, timber stays timber. Authenticity in material creates authenticity in space.',
   },
   {
     number: '02',
     title: 'Light as Architect',
-    body: 'Every building is sculpted by the light it receives. We design with light as a primary material, shaping atmosphere as much as form.',
+    body: 'Every building is sculpted by the light it receives. I design with light as a primary material, shaping atmosphere as much as form.',
   },
   {
     number: '03',
     title: 'Contextual Depth',
-    body: 'Architecture that ignores its place ignores its purpose. We study the land, the culture, the climate — then we respond.',
+    body: 'Architecture that ignores its place ignores its purpose. I study the land, the culture, the climate — then respond.',
   },
   {
     number: '04',
     title: 'Enduring Form',
-    body: 'We resist the trendy in favor of the timeless. A well-made building should feel as right in fifty years as it does today.',
+    body: 'I resist the trendy in favor of the timeless. A well-made building should feel as right in fifty years as it does today.',
   },
 ]
 
@@ -51,7 +51,6 @@ function PrincipleItem({ principle, index }) {
   )
 }
 
-// Apple-style: pinned image section with parallax bg + quote floating over it
 function ParallaxQuote() {
   const ref = useRef(null)
 
@@ -61,27 +60,20 @@ function ParallaxQuote() {
   })
   const smoothP = useSpring(scrollYProgress, { stiffness: 60, damping: 20 })
 
-  // Background moves slower than the container (true parallax)
-  const bgY = useTransform(smoothP, [0, 1], ['-12%', '12%'])
-  // Quote text moves slightly upward as you scroll (subtle float)
+  const bgY    = useTransform(smoothP, [0, 1], ['-12%', '12%'])
   const quoteY = useTransform(smoothP, [0, 1], ['8%', '-8%'])
 
   return (
     <div ref={ref} className="relative h-[70vh] overflow-hidden">
-      {/* Slowest layer — background image */}
-      <motion.div
-        className="absolute inset-0"
-        style={{ y: bgY }}
-      >
+      <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1800&q=80)` }}
+          style={{ backgroundImage: `url(/images/singkaban-board.jpg)` }}
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-[#1C1815]/52" />
+      <div className="absolute inset-0 bg-[#1C1815]/80" />
 
-      {/* Faster layer — quote text floats */}
       <motion.div
         style={{ y: quoteY }}
         className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8 md:px-20"
@@ -114,12 +106,10 @@ export default function Philosophy() {
     <section id="philosophy" className="relative overflow-hidden">
       <ParallaxQuote />
 
-      {/* Principles */}
       <div className="bg-[#F8F5F1] py-44">
-        <div className="max-w-7xl mx-auto px-8 md:px-16">
+        <div className="max-w-6xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-40">
 
-            {/* Left heading — sticky as principles scroll */}
             <div ref={headRef} className="lg:sticky lg:top-36 lg:self-start pb-10">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -134,12 +124,11 @@ export default function Philosophy() {
                   <em className="italic text-[#B09070]">Principles</em>
                 </h2>
                 <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[#4A3F38] max-w-xs">
-                  These convictions underpin every decision we make — from the first sketch to the final detail.
+                  These convictions underpin every decision I make — from the first sketch to the final detail.
                 </p>
               </motion.div>
             </div>
 
-            {/* Right — principles */}
             <div>
               {principles.map((p, i) => (
                 <PrincipleItem key={p.number} principle={p} index={i} />

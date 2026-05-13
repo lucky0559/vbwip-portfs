@@ -48,11 +48,10 @@ export default function Contact() {
     <section id="contact" className="relative overflow-hidden">
       <ParallaxBanner />
 
-      <div className="bg-[#1C1815] py-36">
-        <div className="max-w-7xl mx-auto px-8 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-36">
+      <div className="bg-[#1C1815] py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-8 md:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
-            {/* Info */}
             <div ref={ref}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -62,7 +61,7 @@ export default function Contact() {
                 <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[#B09070] mb-8">
                   — Get in Touch
                 </p>
-                <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.4rem,4.5vw,3.8rem)] leading-[1.1] text-[#F8F5F1] mb-16">
+                <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.4rem,4.5vw,3.8rem)] leading-[1.1] text-[#F8F5F1] mb-10">
                   Start a<br />
                   <em className="italic text-[#B09070]">conversation</em>
                 </h2>
@@ -95,7 +94,7 @@ export default function Contact() {
                       href={s.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-['DM_Sans'] text-[10px] tracking-[0.18em] uppercase text-[#4A3F38] hover:text-[#B09070] transition-colors duration-300"
+                      className="font-['DM_Sans'] text-[10px] tracking-[0.18em] uppercase text-[#C9B9AE] hover:text-[#B09070] transition-colors duration-300"
                     >
                       {s.label}
                     </a>
@@ -104,7 +103,6 @@ export default function Contact() {
               </motion.div>
             </div>
 
-            {/* Form */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -123,30 +121,33 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-12">
                   <div>
-                    <label className="block font-['DM_Sans'] text-[10px] tracking-[0.25em] uppercase text-[#B09070] mb-3">
+                    <label htmlFor="contact-name" className="block font-['DM_Sans'] text-[10px] tracking-[0.25em] uppercase text-[#B09070] mb-3">
                       Full Name
                     </label>
                     <input
+                      id="contact-name"
                       type="text" required placeholder="Your name"
                       value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
                       className={inputClass}
                     />
                   </div>
                   <div>
-                    <label className="block font-['DM_Sans'] text-[10px] tracking-[0.25em] uppercase text-[#B09070] mb-3">
+                    <label htmlFor="contact-email" className="block font-['DM_Sans'] text-[10px] tracking-[0.25em] uppercase text-[#B09070] mb-3">
                       Email Address
                     </label>
                     <input
+                      id="contact-email"
                       type="email" required placeholder="your@email.com"
                       value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
                       className={inputClass}
                     />
                   </div>
                   <div>
-                    <label className="block font-['DM_Sans'] text-[10px] tracking-[0.25em] uppercase text-[#B09070] mb-3">
+                    <label htmlFor="contact-message" className="block font-['DM_Sans'] text-[10px] tracking-[0.25em] uppercase text-[#B09070] mb-3">
                       Message
                     </label>
                     <textarea
+                      id="contact-message"
                       required rows={5} placeholder="Your message or project inquiry..."
                       value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
                       className={`${inputClass} resize-none`}
@@ -154,7 +155,7 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    className="font-['DM_Sans'] text-[11px] tracking-[0.22em] uppercase py-5 bg-[#B09070] text-[#F8F5F1] hover:bg-[#8A6E50] transition-colors duration-300 mt-2"
+                    className="font-['DM_Sans'] text-[11px] tracking-[0.22em] uppercase py-5 bg-[#B09070] text-[#F8F5F1] hover:bg-[#8A6E50] transition-colors duration-300 mt-2 cursor-pointer"
                   >
                     Send Message
                   </button>
