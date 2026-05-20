@@ -31,19 +31,22 @@ function PrincipleItem({ principle, index }) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.85, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="flex gap-10 py-14 border-b border-[#C9B9AE]/40 group"
+      transition={{ duration: 0.8, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      className="flex gap-10 py-14 border-b border-[oklch(76%_0.025_55)]/40 group"
     >
-      <span className="font-['Cormorant_Garamond'] text-5xl font-light text-[#C9B9AE] shrink-0 group-hover:text-[#B09070] transition-colors duration-500 leading-none pt-1">
+      <span
+        className="font-['Cormorant_Garamond'] text-5xl font-light text-[oklch(76%_0.025_55)] shrink-0 group-hover:text-[oklch(64%_0.057_55)] leading-none pt-1"
+        style={{ transition: 'color 300ms var(--ease-out)' }}
+      >
         {principle.number}
       </span>
       <div className="pt-1">
-        <h3 className="font-['Cormorant_Garamond'] text-2xl font-light text-[#1C1815] mb-4">
+        <h3 className="font-['Cormorant_Garamond'] text-2xl font-light text-[oklch(14%_0.008_52)] mb-4">
           {principle.title}
         </h3>
-        <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[#4A3F38]">
+        <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[oklch(30%_0.020_52)]">
           {principle.body}
         </p>
       </div>
@@ -53,13 +56,8 @@ function PrincipleItem({ principle, index }) {
 
 function ParallaxQuote() {
   const ref = useRef(null)
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  })
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const smoothP = useSpring(scrollYProgress, { stiffness: 60, damping: 20 })
-
   const bgY    = useTransform(smoothP, [0, 1], ['-12%', '12%'])
   const quoteY = useTransform(smoothP, [0, 1], ['8%', '-8%'])
 
@@ -71,9 +69,7 @@ function ParallaxQuote() {
           style={{ backgroundImage: `url(/images/singkaban-board.jpg)` }}
         />
       </motion.div>
-
-      <div className="absolute inset-0 bg-[#1C1815]/80" />
-
+      <div className="absolute inset-0 bg-[oklch(14%_0.008_52)]/80" />
       <motion.div
         style={{ y: quoteY }}
         className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8 md:px-20"
@@ -82,15 +78,15 @@ function ParallaxQuote() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.4, ease: 'easeOut' }}
+          transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="block font-['DM_Sans'] text-[10px] tracking-[0.35em] uppercase text-[#B09070] mb-10">
+          <span className="block font-['DM_Sans'] text-[10px] tracking-[0.35em] uppercase text-[oklch(64%_0.057_55)] mb-10">
             — On Architecture
           </span>
-          <p className="font-['Cormorant_Garamond'] italic font-light text-[clamp(1.6rem,4vw,3.2rem)] text-[#EDE0D4] max-w-4xl leading-[1.35] mb-10">
+          <p className="font-['Cormorant_Garamond'] italic font-light text-[clamp(1.6rem,4vw,3.2rem)] text-[oklch(89.5%_0.022_60)] max-w-4xl leading-[1.35] mb-10">
             "Architecture is the will of an epoch<br className="hidden md:block" /> translated into space."
           </p>
-          <span className="font-['DM_Sans'] text-[11px] tracking-[0.25em] uppercase text-[#B09070]">
+          <span className="font-['DM_Sans'] text-[11px] tracking-[0.25em] uppercase text-[oklch(64%_0.057_55)]">
             Mies van der Rohe
           </span>
         </motion.div>
@@ -106,24 +102,24 @@ export default function Philosophy() {
     <section id="philosophy" className="relative overflow-hidden">
       <ParallaxQuote />
 
-      <div className="bg-[#F8F5F1] py-44">
+      <div className="bg-[oklch(97.5%_0.006_65)] py-28 md:py-36">
         <div className="max-w-6xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-40">
 
             <div ref={headRef} className="lg:sticky lg:top-36 lg:self-start pb-10">
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 36 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.95 }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[#B09070] mb-8">
+                <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[oklch(64%_0.057_55)] mb-8">
                   — Design Philosophy
                 </p>
-                <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.4rem,4.5vw,3.8rem)] leading-[1.1] text-[#1C1815] mb-10">
+                <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.4rem,4.5vw,3.8rem)] leading-[1.1] text-[oklch(14%_0.008_52)] mb-10">
                   Guiding<br />
-                  <em className="italic text-[#B09070]">Principles</em>
+                  <em className="italic text-[oklch(64%_0.057_55)]">Principles</em>
                 </h2>
-                <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[#4A3F38] max-w-xs">
+                <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[oklch(30%_0.020_52)] max-w-xs">
                   These convictions underpin every decision I make — from the first sketch to the final detail.
                 </p>
               </motion.div>

@@ -56,17 +56,17 @@ const skills = [
 function SkillBar({ name, level, index }) {
   const { ref, inView } = useInView(0.3)
   return (
-    <div ref={ref} className="py-4 border-b border-[#C9B9AE]/30">
-      <div className="flex justify-between items-center mb-2">
-        <span className="font-['DM_Sans'] text-[13px] text-[#1C1815]">{name}</span>
-        <span className="font-['DM_Sans'] text-[11px] text-[#B09070] tracking-wider">{level}%</span>
+    <div ref={ref} className="py-4 border-b border-[oklch(76%_0.025_55)]/30">
+      <div className="flex justify-between items-center mb-2.5">
+        <span className="font-['DM_Sans'] text-[13px] text-[oklch(14%_0.008_52)]">{name}</span>
+        <span className="font-['DM_Sans'] text-[11px] text-[oklch(64%_0.057_55)] tracking-wider tabular-nums">{level}%</span>
       </div>
-      <div className="h-px bg-[#EDE0D4] relative overflow-hidden">
+      <div className="h-px bg-[oklch(89.5%_0.022_60)] relative overflow-hidden">
         <motion.div
-          className="absolute top-0 left-0 h-full bg-[#B09070]"
+          className="absolute top-0 left-0 h-full bg-[oklch(64%_0.057_55)]"
           initial={{ width: 0 }}
           animate={inView ? { width: `${level}%` } : {}}
-          transition={{ duration: 1.2, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.1, delay: index * 0.055, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
     </div>
@@ -74,7 +74,7 @@ function SkillBar({ name, level, index }) {
 }
 
 function SkillSlide({ s, index, total, scrollProgress }) {
-  const n = total
+  const n     = total
   const start = index / n
   const end   = (index + 1) / n
   const gap   = 0.025
@@ -110,29 +110,29 @@ function SkillSlide({ s, index, total, scrollProgress }) {
           style={{ backgroundImage: `url(${s.img})`, y: bgY }}
         />
       </div>
-      <div className="absolute inset-0 bg-[#1C1815]/72" />
+      <div className="absolute inset-0 bg-[oklch(14%_0.008_52)]/72" />
 
       <motion.div
         style={{ y: contentY }}
         className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-8"
       >
-        <span className="text-[#B09070] mb-8 block">
+        <span className="text-[oklch(64%_0.057_55)] mb-8 block">
           <s.Icon size={40} strokeWidth={1} />
         </span>
-        <h3 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.8rem,6vw,5.5rem)] text-[#F8F5F1] leading-[1.0] mb-8">
+        <h3 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.8rem,6vw,5.5rem)] text-[oklch(97.5%_0.006_65)] leading-[1.0] mb-8">
           {s.title}
         </h3>
-        <div className="w-12 h-px bg-[#B09070] mb-8" />
-        <p className="font-['DM_Sans'] font-light text-[15px] text-[#C9B9AE] leading-[1.95] max-w-lg">
+        <div className="w-12 h-px bg-[oklch(64%_0.057_55)] mb-8" />
+        <p className="font-['DM_Sans'] font-light text-[15px] text-[oklch(76%_0.025_55)] leading-[1.95] max-w-lg">
           {s.body}
         </p>
       </motion.div>
 
       <div className="absolute bottom-10 left-8 md:left-16 z-10 flex items-center gap-4">
-        <span className="font-['Cormorant_Garamond'] text-4xl font-light text-[#B09070] leading-none">
+        <span className="font-['Cormorant_Garamond'] text-4xl font-light text-[oklch(64%_0.057_55)] leading-none">
           {String(index + 1).padStart(2, '0')}
         </span>
-        <span className="font-['DM_Sans'] text-[9px] tracking-[0.25em] uppercase text-[#C9B9AE]/60">
+        <span className="font-['DM_Sans'] text-[9px] tracking-[0.25em] uppercase text-[oklch(76%_0.025_55)]/60">
           / {String(total).padStart(2, '0')}
         </span>
       </div>
@@ -141,9 +141,12 @@ function SkillSlide({ s, index, total, scrollProgress }) {
         {Array.from({ length: total }).map((_, i) => (
           <div
             key={i}
-            className={`w-px transition-all duration-700 ${
-              i === index ? 'h-8 bg-[#B09070]' : 'h-2 bg-[#C9B9AE]/40'
-            }`}
+            className="w-px"
+            style={{
+              height: i === index ? '2rem' : '0.5rem',
+              backgroundColor: i === index ? 'oklch(64% 0.057 55)' : 'oklch(76% 0.025 55 / 0.4)',
+              transition: 'height 600ms var(--ease-out), background-color 600ms var(--ease-out)',
+            }}
           />
         ))}
       </div>
@@ -165,11 +168,12 @@ export default function Skills() {
 
   return (
     <>
-      <section id="skills" ref={sectionRef} className="bg-[#EDE0D4] py-20 md:py-28 overflow-hidden relative">
+      <section id="skills" ref={sectionRef} className="bg-[oklch(89.5%_0.022_60)] py-20 md:py-28 overflow-hidden relative">
 
         <motion.div
-          aria-hidden style={{ x: markX }}
-          className="absolute top-1/2 right-0 -translate-y-1/2 font-['Cormorant_Garamond'] text-[16vw] font-light leading-none text-[#C9B9AE]/30 select-none pointer-events-none whitespace-nowrap"
+          aria-hidden
+          style={{ x: markX }}
+          className="absolute top-1/2 right-0 -translate-y-1/2 font-['Cormorant_Garamond'] text-[16vw] font-light leading-none text-[oklch(76%_0.025_55)]/30 select-none pointer-events-none whitespace-nowrap"
         >
           Skills
         </motion.div>
@@ -178,33 +182,34 @@ export default function Skills() {
 
           <div ref={headRef} className="mb-14">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 36 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.95 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[#B09070] mb-5">
+              <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[oklch(64%_0.057_55)] mb-5">
                 — Capabilities
               </p>
-              <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] text-[#1C1815]">
+              <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] text-[oklch(14%_0.008_52)]">
                 Skills & Software
               </h2>
             </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
             className="mb-16"
           >
-            <p className="font-['DM_Sans'] text-[11px] tracking-[0.22em] uppercase text-[#B09070] mb-10">
+            <p className="font-['DM_Sans'] text-[11px] tracking-[0.22em] uppercase text-[oklch(64%_0.057_55)] mb-10">
               Software Proficiency
             </p>
             {software.map((s, i) => <SkillBar key={s.name} {...s} index={i} />)}
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-[#C9B9AE]/40">
+          {/* Education & Experience — no side-stripe borders */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-[oklch(76%_0.025_55)]/40">
             {[
               {
                 label: 'Education',
@@ -223,18 +228,25 @@ export default function Skills() {
             ].map(col => (
               <motion.div
                 key={col.label}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.85 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="font-['DM_Sans'] text-[11px] tracking-[0.22em] uppercase text-[#B09070] mb-8">{col.label}</p>
-                <div className="space-y-8">
-                  {col.items.map(item => (
-                    <div key={item.title} className="pl-6 border-l border-[#C9B9AE]/50">
-                      <p className="font-['Cormorant_Garamond'] text-xl font-light text-[#1C1815] mb-1">{item.title}</p>
-                      <p className="font-['DM_Sans'] text-[12px] text-[#4A3F38] mb-1">{item.sub}</p>
-                      {item.note && <p className="font-['DM_Sans'] text-[11px] italic text-[#B09070]">{item.note}</p>}
+                <p className="font-['DM_Sans'] text-[11px] tracking-[0.22em] uppercase text-[oklch(64%_0.057_55)] mb-8">
+                  {col.label}
+                </p>
+                <div className="space-y-0">
+                  {col.items.map((item, itemIdx) => (
+                    <div
+                      key={item.title}
+                      className={`py-7 ${itemIdx < col.items.length - 1 ? 'border-b border-[oklch(76%_0.025_55)]/35' : ''}`}
+                    >
+                      <p className="font-['Cormorant_Garamond'] text-xl font-light text-[oklch(14%_0.008_52)] mb-1">{item.title}</p>
+                      <p className="font-['DM_Sans'] text-[12px] text-[oklch(30%_0.020_52)] mb-1">{item.sub}</p>
+                      {item.note && (
+                        <p className="font-['DM_Sans'] text-[11px] italic text-[oklch(64%_0.057_55)]">{item.note}</p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -249,10 +261,10 @@ export default function Skills() {
         <div className="sticky top-0 h-screen overflow-hidden">
 
           <div className="absolute top-0 left-0 right-0 z-20 px-8 md:px-16 pt-8 flex items-center justify-between">
-            <p className="font-['DM_Sans'] text-[10px] tracking-[0.32em] uppercase text-[#C9B9AE]/70">
+            <p className="font-['DM_Sans'] text-[10px] tracking-[0.32em] uppercase text-[oklch(76%_0.025_55)]/70">
               — Core Capabilities
             </p>
-            <p className="font-['DM_Sans'] text-[10px] tracking-[0.22em] uppercase text-[#C9B9AE]/50">
+            <p className="font-['DM_Sans'] text-[10px] tracking-[0.22em] uppercase text-[oklch(76%_0.025_55)]/50">
               Scroll to explore
             </p>
           </div>

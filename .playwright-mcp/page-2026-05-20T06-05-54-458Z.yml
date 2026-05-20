@@ -1,0 +1,387 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - button "VAB." [ref=e6] [cursor=pointer]
+      - generic [ref=e7]:
+        - button "About" [ref=e8] [cursor=pointer]
+        - button "Services" [ref=e9] [cursor=pointer]
+        - button "Works" [ref=e10] [cursor=pointer]
+        - button "Skills" [ref=e11] [cursor=pointer]
+        - button "Thesis" [ref=e12] [cursor=pointer]
+        - button "Philosophy" [ref=e13] [cursor=pointer]
+        - button "Contact" [ref=e14] [cursor=pointer]
+  - generic [ref=e15]:
+    - generic [ref=e22]:
+      - generic [ref=e25]: BS Architecture · Malolos, Bulacan
+      - heading "Vanessa Benipayo" [level=1] [ref=e27]
+      - paragraph [ref=e29]: Designing spaces with purpose.
+      - generic [ref=e30]:
+        - button "View Thesis" [ref=e31] [cursor=pointer]
+        - button "See Works" [ref=e32] [cursor=pointer]: See Works
+    - paragraph [ref=e35]: SINGKABAN — Architectural Thesis, 2024
+    - generic [ref=e36]:
+      - button "Go to slide 1" [ref=e37] [cursor=pointer]
+      - button "Go to slide 2" [ref=e39] [cursor=pointer]
+      - button "Go to slide 3" [ref=e41] [cursor=pointer]
+    - generic [ref=e45]: Scroll
+  - generic [ref=e48]:
+    - generic: About
+    - generic [ref=e50]:
+      - generic [ref=e52]:
+        - img "Vanessa Aguilar Benipayo" [ref=e55]
+        - generic [ref=e56]:
+          - paragraph [ref=e57]: BS Arch
+          - paragraph [ref=e58]: Class of 2024
+      - generic [ref=e60]:
+        - paragraph [ref=e61]: — The Architect
+        - heading "Vanessa Aguilar Benipayo" [level=2] [ref=e62]:
+          - text: Vanessa Aguilar
+          - emphasis [ref=e63]: Benipayo
+        - paragraph [ref=e64]: A graduate of Bachelor of Science in Architecture from National University Manila, Batch 2024. Currently working as a project architect at HDPow Construction and Development Corporation in Malolos, Bulacan, Philippines, where I handle BIM modeling, technical drawings, design coordination, and 3D visualization.
+        - paragraph [ref=e65]: Proficient in Revit, AutoCAD, Lumion, Enscape, and Adobe Creative Suite — with a deep appreciation for architecture rooted in culture, community, and context.
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - generic [ref=e68]: Email
+            - generic [ref=e69]: benipayovanessa@gmail.com
+          - generic [ref=e70]:
+            - generic [ref=e71]: Phone
+            - generic [ref=e72]: +639 949 526 454
+          - generic [ref=e73]:
+            - generic [ref=e74]: Location
+            - generic [ref=e75]: Malolos, Bulacan, Philippines
+          - generic [ref=e76]:
+            - generic [ref=e77]: LinkedIn
+            - generic [ref=e78]: linkedin.com/in/vanessabenipayo
+  - generic [ref=e79]:
+    - generic: Services
+    - generic [ref=e80]:
+      - generic [ref=e82]:
+        - paragraph [ref=e83]: — What I Offer
+        - heading "Services" [level=2] [ref=e84]
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]: "01"
+          - generic [ref=e88]:
+            - heading "Architectural Design" [level=3] [ref=e89]
+            - paragraph [ref=e90]: From concept to construction documentation — residential, cultural, civic, and hospitality projects of all scales.
+          - generic [ref=e91]: →
+        - generic [ref=e92]:
+          - generic [ref=e93]: "02"
+          - generic [ref=e94]:
+            - heading "Interior Architecture" [level=3] [ref=e95]
+            - paragraph [ref=e96]: Spatial planning, material selection, and detailing that transforms interiors into cohesive environments.
+          - generic [ref=e97]: →
+        - generic [ref=e98]:
+          - generic [ref=e99]: "03"
+          - generic [ref=e100]:
+            - heading "Master Planning" [level=3] [ref=e101]
+            - paragraph [ref=e102]: Urban and landscape master planning that balances programme, ecology, movement, and community life.
+          - generic [ref=e103]: →
+        - generic [ref=e104]:
+          - generic [ref=e105]: "04"
+          - generic [ref=e106]:
+            - heading "Heritage & Renovation" [level=3] [ref=e107]
+            - paragraph [ref=e108]: Sensitive interventions into existing fabric — restoration, adaptive reuse, and extension of historic buildings.
+          - generic [ref=e109]: →
+        - generic [ref=e110]:
+          - generic [ref=e111]: "05"
+          - generic [ref=e112]:
+            - heading "Competition & Research" [level=3] [ref=e113]
+            - paragraph [ref=e114]: Speculative and competition work exploring the boundaries of what architecture can be and do.
+          - generic [ref=e115]: →
+        - generic [ref=e116]:
+          - generic [ref=e117]: "06"
+          - generic [ref=e118]:
+            - heading "Consultancy" [level=3] [ref=e119]
+            - paragraph [ref=e120]: Design reviews, expert witness, feasibility studies, and advisory services for developers and institutions.
+          - generic [ref=e121]: →
+  - generic [ref=e122]:
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - paragraph [ref=e126]: — Selected Works
+        - heading "Projects & Works" [level=2] [ref=e127]
+      - generic [ref=e128]:
+        - button "All" [ref=e129] [cursor=pointer]
+        - button "Thesis" [ref=e130] [cursor=pointer]
+        - button "Apprentice" [ref=e131] [cursor=pointer]
+        - button "Art" [ref=e132] [cursor=pointer]
+    - generic [ref=e134]:
+      - generic [ref=e136] [cursor=pointer]:
+        - img "SINGKABAN" [ref=e137]
+        - generic [ref=e139]:
+          - paragraph [ref=e140]: Thesis · 2024
+          - heading "SINGKABAN" [level=3] [ref=e141]
+          - paragraph [ref=e142]: Commercial Hub with Training Facility
+      - generic [ref=e144] [cursor=pointer]:
+        - img "Commercial Hub Lobby" [ref=e145]
+        - generic [ref=e147]:
+          - paragraph [ref=e148]: Thesis · 2024
+          - heading "Commercial Hub Lobby" [level=3] [ref=e149]
+          - paragraph [ref=e150]: Interior Render — Revit & Lumion
+      - generic [ref=e152] [cursor=pointer]:
+        - img "Training Facility" [ref=e153]
+        - generic [ref=e155]:
+          - paragraph [ref=e156]: Thesis · 2024
+          - heading "Training Facility" [level=3] [ref=e157]
+          - paragraph [ref=e158]: Exterior Render — Enscape
+      - generic [ref=e160] [cursor=pointer]:
+        - img "Uniqlo Warehouse" [ref=e161]
+        - generic [ref=e163]:
+          - paragraph [ref=e164]: Apprentice · 2024
+          - heading "Uniqlo Warehouse" [level=3] [ref=e165]
+          - paragraph [ref=e166]: BIM & Revit Modeling
+      - generic [ref=e168] [cursor=pointer]:
+        - img "Pampanga Warehouse" [ref=e169]
+        - generic [ref=e171]:
+          - paragraph [ref=e172]: Apprentice · 2024
+          - heading "Pampanga Warehouse" [level=3] [ref=e173]
+          - paragraph [ref=e174]: Visualization — Lumion
+      - generic [ref=e176] [cursor=pointer]:
+        - img "Sydney Opera House" [ref=e177]
+        - generic [ref=e179]:
+          - paragraph [ref=e180]: Art · 2022
+          - heading "Sydney Opera House" [level=3] [ref=e181]
+          - paragraph [ref=e182]: Mixed Media — Watercolor & Color Pastel
+  - generic [ref=e183]:
+    - generic [ref=e189]:
+      - paragraph [ref=e190]: — Architectural Thesis · Design 10 · 2024
+      - heading "SINGKABAN" [level=2] [ref=e191]
+      - paragraph [ref=e192]: A Proposed Malolos Commercial Hub with Training Facility
+    - generic [ref=e195]:
+      - generic [ref=e197]:
+        - paragraph [ref=e198]: — Design Concept
+        - heading "Empowerment & Experience" [level=3] [ref=e199]:
+          - text: Empowerment
+          - emphasis [ref=e200]: "& Experience"
+        - paragraph [ref=e201]: Singkaban — the Filipino word for the decorative bamboo arch synonymous with Bulacan — inspired the form language of this project. The aluminum cladding façade replicates the intricate weave of the traditional arch.
+        - paragraph [ref=e202]: Located on MacArthur Highway, Malolos, the 2.43-hectare development serves micro, small, and medium enterprises (MSMEs) — creating a platform for local industry, agriculture, and cultural exchange.
+        - generic [ref=e203]:
+          - generic [ref=e204]:
+            - paragraph [ref=e205]: 2.43 ha
+            - paragraph [ref=e206]: Total Lot Area
+          - generic [ref=e207]:
+            - paragraph [ref=e208]: 3F + RD
+            - paragraph [ref=e209]: Commercial Hub
+          - generic [ref=e210]:
+            - paragraph [ref=e211]: MSMEs
+            - paragraph [ref=e212]: Primary Users
+          - generic [ref=e213]:
+            - paragraph [ref=e214]: Revit
+            - paragraph [ref=e215]: Primary Tool
+      - generic [ref=e216]:
+        - generic [ref=e218]:
+          - img "Commercial Hub Lobby" [ref=e220]
+          - paragraph [ref=e222]: Commercial Hub Lobby
+        - generic [ref=e223]:
+          - img "Training Facility" [ref=e225]
+          - paragraph [ref=e227]: Training Facility
+        - generic [ref=e228]:
+          - img "Aerial Perspective" [ref=e230]
+          - paragraph [ref=e232]: Aerial Perspective
+    - generic [ref=e235]:
+      - generic [ref=e236]:
+        - generic [ref=e237]: "01"
+        - heading "Cultural Exhibition" [level=4] [ref=e238]
+        - paragraph [ref=e239]: Exhibit the culture and local products of Malolos, rooting the building in its community identity.
+      - generic [ref=e240]:
+        - generic [ref=e241]: "02"
+        - heading "Business Ecosystem" [level=4] [ref=e242]
+        - paragraph [ref=e243]: Create a conducive environment to generate businesses and support livelihood programmes.
+      - generic [ref=e244]:
+        - generic [ref=e245]: "03"
+        - heading "People-Centric Design" [level=4] [ref=e246]
+        - paragraph [ref=e247]: Establish spaces that prioritize human experience, accessibility, and social cohesion.
+  - generic [ref=e248]:
+    - generic: Skills
+    - generic [ref=e249]:
+      - generic [ref=e251]:
+        - paragraph [ref=e252]: — Capabilities
+        - heading "Skills & Software" [level=2] [ref=e253]
+      - generic [ref=e254]:
+        - paragraph [ref=e255]: Software Proficiency
+        - generic [ref=e257]:
+          - generic [ref=e258]: Revit
+          - generic [ref=e259]: 92%
+        - generic [ref=e262]:
+          - generic [ref=e263]: AutoCAD
+          - generic [ref=e264]: 90%
+        - generic [ref=e267]:
+          - generic [ref=e268]: Lumion
+          - generic [ref=e269]: 85%
+        - generic [ref=e272]:
+          - generic [ref=e273]: Enscape
+          - generic [ref=e274]: 85%
+        - generic [ref=e277]:
+          - generic [ref=e278]: Adobe Photoshop
+          - generic [ref=e279]: 80%
+        - generic [ref=e282]:
+          - generic [ref=e283]: Adobe Illustrator
+          - generic [ref=e284]: 75%
+        - generic [ref=e287]:
+          - generic [ref=e288]: SketchUp & LayOut
+          - generic [ref=e289]: 78%
+        - generic [ref=e292]:
+          - generic [ref=e293]: Microsoft Office
+          - generic [ref=e294]: 95%
+      - generic [ref=e296]:
+        - generic [ref=e297]:
+          - paragraph [ref=e298]: Education
+          - generic [ref=e299]:
+            - generic [ref=e300]:
+              - paragraph [ref=e301]: BS Architecture
+              - paragraph [ref=e302]: National University — Manila · Batch 2024
+              - paragraph [ref=e303]: Dean's Lister, 1st & 2nd Term 2021
+            - generic [ref=e304]:
+              - paragraph [ref=e305]: Senior High School (STEM)
+              - paragraph [ref=e306]: Dr. Yanga's Colleges Inc. · Batch 2019
+        - generic [ref=e307]:
+          - paragraph [ref=e308]: Experience
+          - generic [ref=e309]:
+            - generic [ref=e310]:
+              - paragraph [ref=e311]: Project Architect
+              - paragraph [ref=e312]: HDPow Construction & Development Corp. · Aug 2024 – Present
+              - paragraph [ref=e313]: BIM, Technical Drawings, Design Coordination, 3D Visualization
+            - generic [ref=e314]:
+              - paragraph [ref=e315]: UAP Graduate Auxiliary
+              - paragraph [ref=e316]: United Architects of the Philippines · 2020 – 2022
+  - generic [ref=e318]:
+    - generic [ref=e319]:
+      - paragraph [ref=e320]: — Core Capabilities
+      - paragraph [ref=e321]: Scroll to explore
+    - generic:
+      - generic:
+        - generic:
+          - img
+        - heading "BIM Modeling" [level=3]
+        - paragraph: Building information modeling using Revit — architectural and structural coordination, clash detection, and full project documentation.
+      - generic:
+        - generic: "01"
+        - generic: / 06
+    - generic:
+      - generic:
+        - generic:
+          - img
+        - heading [level=3]: Technical Drawing
+        - paragraph: Detailed AutoCAD drafting for floor plans, elevations, sections, reflected ceiling plans, and construction documents.
+      - generic:
+        - generic: "02"
+        - generic: / 06
+    - generic:
+      - generic:
+        - generic:
+          - img
+        - heading [level=3]: 3D Visualization
+        - paragraph: Photo-realistic rendering using Lumion and Enscape — real-time walkthroughs and immersive environment presentations.
+      - generic:
+        - generic: "03"
+        - generic: / 06
+    - generic:
+      - generic:
+        - generic:
+          - img
+        - heading [level=3]: Mixed Media Art
+        - paragraph: Architectural illustration in watercolor, color pencil, pastel, pen & ink, alcohol markers, and graphite.
+      - generic:
+        - generic: "04"
+        - generic: / 06
+    - generic:
+      - generic:
+        - generic:
+          - img
+        - heading [level=3]: Design Coordination
+        - paragraph: Cross-discipline coordination among architectural, structural, MEP, and interior design teams throughout project development.
+      - generic:
+        - generic: "05"
+        - generic: / 06
+    - generic:
+      - generic:
+        - generic:
+          - img
+        - heading [level=3]: Free Hand Drawing
+        - paragraph: Expressive hand-rendered sketches and concept ideation in pen & ink — rapid design communication at any stage.
+      - generic:
+        - generic: "06"
+        - generic: / 06
+  - generic [ref=e322]:
+    - generic [ref=e328]:
+      - generic [ref=e329]: — On Architecture
+      - paragraph [ref=e330]:
+        - text: "\"Architecture is the will of an epoch"
+        - text: translated into space."
+      - text: Mies van der Rohe
+    - generic [ref=e333]:
+      - generic [ref=e335]:
+        - paragraph [ref=e336]: — Design Philosophy
+        - heading "Guiding Principles" [level=2] [ref=e337]:
+          - text: Guiding
+          - emphasis [ref=e338]: Principles
+        - paragraph [ref=e339]: These convictions underpin every decision I make — from the first sketch to the final detail.
+      - generic [ref=e340]:
+        - generic [ref=e341]:
+          - generic [ref=e342]: "01"
+          - generic [ref=e343]:
+            - heading "Material Honesty" [level=3] [ref=e344]
+            - paragraph [ref=e345]: I let materials speak their own language — concrete remains concrete, timber stays timber. Authenticity in material creates authenticity in space.
+        - generic [ref=e346]:
+          - generic [ref=e347]: "02"
+          - generic [ref=e348]:
+            - heading "Light as Architect" [level=3] [ref=e349]
+            - paragraph [ref=e350]: Every building is sculpted by the light it receives. I design with light as a primary material, shaping atmosphere as much as form.
+        - generic [ref=e351]:
+          - generic [ref=e352]: "03"
+          - generic [ref=e353]:
+            - heading "Contextual Depth" [level=3] [ref=e354]
+            - paragraph [ref=e355]: Architecture that ignores its place ignores its purpose. I study the land, the culture, the climate — then respond.
+        - generic [ref=e356]:
+          - generic [ref=e357]: "04"
+          - generic [ref=e358]:
+            - heading "Enduring Form" [level=3] [ref=e359]
+            - paragraph [ref=e360]: I resist the trendy in favor of the timeless. A well-made building should feel as right in fifty years as it does today.
+  - generic [ref=e361]:
+    - paragraph [ref=e367]:
+      - text: Open to opportunities
+      - emphasis [ref=e368]: "& collaborations."
+    - generic [ref=e371]:
+      - generic [ref=e373]:
+        - paragraph [ref=e374]: — Get in Touch
+        - heading "Start a conversation" [level=2] [ref=e375]:
+          - text: Start a
+          - emphasis [ref=e376]: conversation
+        - generic [ref=e377]:
+          - generic [ref=e378]:
+            - generic [ref=e379]: Name
+            - generic [ref=e380]: Vanessa Aguilar Benipayo
+          - generic [ref=e381]:
+            - generic [ref=e382]: Email
+            - generic [ref=e383]: benipayovanessa@gmail.com
+          - generic [ref=e384]:
+            - generic [ref=e385]: Phone
+            - generic [ref=e386]: +639 949 526 454
+          - generic [ref=e387]:
+            - generic [ref=e388]: Location
+            - generic [ref=e389]: Malolos, Bulacan, Philippines
+        - generic [ref=e390]:
+          - link "LinkedIn" [ref=e391] [cursor=pointer]:
+            - /url: https://linkedin.com/in/vanessabenipayo
+          - link "Email" [ref=e392] [cursor=pointer]:
+            - /url: mailto:benipayovanessa@gmail.com
+      - generic [ref=e394]:
+        - generic [ref=e395]:
+          - generic [ref=e396]: Full Name
+          - textbox "Full Name" [ref=e397]:
+            - /placeholder: Your name
+        - generic [ref=e398]:
+          - generic [ref=e399]: Email Address
+          - textbox "Email Address" [ref=e400]:
+            - /placeholder: your@email.com
+        - generic [ref=e401]:
+          - generic [ref=e402]: Message
+          - textbox "Message" [ref=e403]:
+            - /placeholder: Your message or project inquiry...
+        - button "Send Message" [ref=e404] [cursor=pointer]
+  - contentinfo [ref=e405]:
+    - generic [ref=e406]:
+      - generic [ref=e407]: VAB.
+      - paragraph [ref=e408]: © 2025 Vanessa Aguilar Benipayo · BS Architecture · National University Manila
+      - link "benipayovanessa@gmail.com" [ref=e409] [cursor=pointer]:
+        - /url: mailto:benipayovanessa@gmail.com
