@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,300&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -15,12 +15,22 @@
   --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-ui:     cubic-bezier(0.22, 1, 0.36, 1);
+  --color-paper: oklch(96.2% 0.012 65);
+  --color-paper-deep: oklch(90.5% 0.024 57);
+  --color-graphite: oklch(21% 0.012 72);
+  --color-graphite-soft: oklch(38% 0.018 63);
+  --color-line: oklch(80% 0.024 62);
+  --color-oxide: oklch(56% 0.095 42);
+  --font-body: 'Albert Sans', system-ui, sans-serif;
+  --font-display: 'Bodoni Moda', 'Iowan Old Style', Georgia, serif;
 }
 
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 html {
@@ -28,9 +38,9 @@ html {
 }
 
 body {
-  background-color: oklch(97.5% 0.006 65);
-  color: oklch(14% 0.008 52);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-graphite);
+  font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -51,10 +61,41 @@ body {
 }
 
 button:focus-visible,
-a:focus-visible {
-  outline: 2px solid oklch(64% 0.057 55);
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-oxide);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  transform: translateY(-180%);
+  background: var(--color-graphite);
+  color: var(--color-paper);
+  padding: 0.8rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 180ms var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .scrollbar-hide {

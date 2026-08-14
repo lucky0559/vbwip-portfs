@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact email preview</title>
+  </head>
+  <body>
+    <script type="module">
+      import { buildContactEmail } from './api/contact-email.js'
+
+      const email = buildContactEmail({
+        name: 'Mara Santos',
+        email: 'mara@example.com',
+        message: 'I would like to discuss a small community space and the next steps for a consultation.',
+        receivedAt: 'Aug 15, 2026, 10:30 AM',
+      })
+      const parsed = new DOMParser().parseFromString(email.html, 'text/html')
+      document.documentElement.replaceWith(parsed.documentElement)
+    </script>
+  </body>
+</html>

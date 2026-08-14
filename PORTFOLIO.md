@@ -155,7 +155,7 @@ src/
 - [ ] Lazy-load images with blur-up placeholder
 
 ### Contact
-- [ ] Wire form to email service (Resend / EmailJS / Formspree)
+- [x] Wire form to email service through the server-side Nodemailer SMTP endpoint
 - [ ] Form validation with error messages
 - [ ] reCAPTCHA or honeypot spam protection
 

@@ -14,16 +14,21 @@ import ScrollProgress from './components/ScrollProgress'
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <ScrollProgress />
       <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Works />
-      <Thesis />
-      <Skills />
-      <Philosophy />
-      <Contact />
+      <main id="main-content" tabIndex="-1">
+        <Hero />
+        <About />
+        <Services />
+        <Works />
+        <Thesis />
+        <Skills />
+        <Philosophy />
+        <Contact />
+      </main>
       <Footer />
     </MotionConfig>
   )

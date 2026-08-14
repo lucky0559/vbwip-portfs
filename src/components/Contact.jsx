@@ -35,14 +35,44 @@ function ParallaxBanner() {
 }
 
 const inputBase =
-  'w-full bg-transparent border-b border-[oklch(30%_0.020_52)]/40 py-5 font-["DM_Sans"] text-[14px] text-[oklch(76%_0.025_55)] placeholder-[oklch(30%_0.020_52)]/60 focus:outline-none focus:border-[oklch(64%_0.057_55)]'
+  'w-full bg-transparent border-b border-[oklch(96.2%_0.012_65)]/25 py-5 font-["Albert_Sans"] text-[14px] text-[oklch(96.2%_0.012_65)] placeholder-[oklch(90.5%_0.024_57)]/70 focus:outline-none focus:border-[oklch(76%_0.085_55)]'
+const contactEmail = 'benipayovanessa@gmail.com'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [sent, setSent]  = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('idle')
+  const [submitError, setSubmitError] = useState('')
   const { ref, inView }  = useInView()
 
-  const handleSubmit = (e) => { e.preventDefault(); setSent(true) }
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSubmitStatus('sending')
+    setSubmitError('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.message.trim(),
+          website: '',
+        }),
+      })
+      const result = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(result.error || 'The message could not be sent.')
+      }
+
+      setSubmitStatus('sent')
+      setForm({ name: '', email: '', message: '' })
+    } catch (error) {
+      setSubmitStatus('error')
+      setSubmitError(error instanceof Error ? error.message : 'The message could not be sent. Please try again.')
+    }
+  }
 
   return (
     <section id="contact" className="relative overflow-hidden">
@@ -69,7 +99,7 @@ export default function Contact() {
                 <div className="space-y-0">
                   {[
                     { label: 'Name',     value: 'Vanessa Aguilar Benipayo' },
-                    { label: 'Email',    value: 'benipayovanessa@gmail.com' },
+                    { label: 'Email',    value: contactEmail },
                     { label: 'Phone',    value: '+639 949 526 454' },
                     { label: 'Location', value: 'Malolos, Bulacan, Philippines' },
                   ].map(item => (
@@ -87,7 +117,7 @@ export default function Contact() {
                 <div className="flex flex-wrap gap-8 mt-14">
                   {[
                     { label: 'LinkedIn', href: 'https://linkedin.com/in/vanessabenipayo' },
-                    { label: 'Email',    href: 'mailto:benipayovanessa@gmail.com' },
+                    { label: 'Email',    href: `mailto:${contactEmail}` },
                   ].map(s => (
                     <a
                       key={s.label}
@@ -109,26 +139,37 @@ export default function Contact() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.95, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
             >
-              {sent ? (
-                <div className="h-full flex flex-col items-start justify-center gap-6">
+              {submitStatus === 'sent' ? (
+                <div className="h-full flex flex-col items-start justify-center gap-6" role="status" aria-live="polite">
                   <div className="w-12 h-px bg-[oklch(64%_0.057_55)]" />
                   <p className="font-['Cormorant_Garamond'] italic font-light text-4xl text-[oklch(97.5%_0.006_65)]">
-                    Message received.
+                    Message sent.
                   </p>
                   <p className="font-['DM_Sans'] font-light text-[14px] text-[oklch(76%_0.025_55)] leading-relaxed">
-                    I'll get back to you within two business days.
+                    Your inquiry has been submitted. Vanessa can reply directly to the email address you provided.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-12">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-12"
+                  aria-busy={submitStatus === 'sending'}
+                  aria-describedby={`contact-delivery-note${submitError ? ' contact-submit-error' : ''}`}
+                >
+                  <div aria-hidden="true" className="absolute left-[-10000px] h-px w-px overflow-hidden">
+                    <label htmlFor="contact-website">Website</label>
+                    <input id="contact-website" name="website" type="text" tabIndex="-1" autoComplete="off" />
+                  </div>
                   <div>
                     <label htmlFor="contact-name" className="block font-['DM_Sans'] text-[10px] tracking-[0.25em] uppercase text-[oklch(64%_0.057_55)] mb-3">
                       Full Name
                     </label>
                     <input
                       id="contact-name"
+                      name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       placeholder="Your name"
                       value={form.name}
                       onChange={e => setForm({ ...form, name: e.target.value })}
@@ -142,8 +183,11 @@ export default function Contact() {
                     </label>
                     <input
                       id="contact-email"
+                      name="email"
                       type="email"
                       required
+                      autoComplete="email"
+                      inputMode="email"
                       placeholder="your@email.com"
                       value={form.email}
                       onChange={e => setForm({ ...form, email: e.target.value })}
@@ -157,6 +201,7 @@ export default function Contact() {
                     </label>
                     <textarea
                       id="contact-message"
+                      name="message"
                       required
                       rows={5}
                       placeholder="Your message or project inquiry..."
@@ -166,16 +211,25 @@ export default function Contact() {
                       style={{ transition: 'border-color 200ms var(--ease-out)' }}
                     />
                   </div>
+                  <p id="contact-delivery-note" className="-mt-5 font-['DM_Sans'] text-[12px] leading-relaxed text-[oklch(76%_0.025_55)]/80">
+                    Submitting sends your inquiry directly to Vanessa. Your email address is used as the reply address.
+                  </p>
+                  {submitError && (
+                    <p id="contact-submit-error" role="alert" className="-mt-5 font-['DM_Sans'] text-[12px] leading-relaxed text-[oklch(82%_0.09_35)]">
+                      {submitError}
+                    </p>
+                  )}
                   <motion.button
                     type="submit"
+                    disabled={submitStatus === 'sending'}
                     whileTap={{ scale: 0.97 }}
                     transition={{ duration: 0.16, ease: [0.23, 1, 0.32, 1] }}
-                    className="font-['DM_Sans'] text-[11px] tracking-[0.22em] uppercase py-5 bg-[oklch(64%_0.057_55)] text-[oklch(97.5%_0.006_65)] mt-2 cursor-pointer"
+                    className="font-['DM_Sans'] text-[11px] tracking-[0.22em] uppercase py-5 bg-[oklch(64%_0.057_55)] text-[oklch(97.5%_0.006_65)] mt-2 cursor-pointer disabled:cursor-wait disabled:opacity-60"
                     style={{ transition: 'background-color 220ms var(--ease-out), transform 160ms var(--ease-out)' }}
                     onMouseOver={e => e.currentTarget.style.backgroundColor = 'oklch(51% 0.058 54)'}
                     onMouseOut={e => e.currentTarget.style.backgroundColor = 'oklch(64% 0.057 55)'}
                   >
-                    Send Message
+                    {submitStatus === 'sending' ? 'Sending…' : 'Send message'}
                   </motion.button>
                 </form>
               )}
