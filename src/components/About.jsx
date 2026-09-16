@@ -1,113 +1,87 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useParallax'
 
-export default function About() {
-  const sectionRef = useRef(null)
-  const { ref: textRef, inView } = useInView(0.1)
+const details = [
+  { label: 'Based in', value: 'Malolos, Bulacan' },
+  { label: 'Practice', value: 'Design · BIM · Visualization' },
+  { label: 'Education', value: 'BS Architecture · 2024' },
+]
 
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] })
-  const smooth = useSpring(scrollYProgress, { stiffness: 60, damping: 20 })
-  const imgY   = useTransform(smooth, [0, 1], ['4%', '-4%'])
-  const markX  = useTransform(smooth, [0, 1], ['-2%', '2%'])
+export default function About() {
+  const { ref, inView } = useInView(0.15)
 
   return (
-    <section id="about" ref={sectionRef} className="relative bg-[oklch(97.5%_0.006_65)] py-20 md:py-28 overflow-hidden">
+    <section id="about" className="section section--paper about-section" aria-labelledby="about-title">
+      <div className="container">
+        <div ref={ref} className="section-heading section-heading--split">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="eyebrow">01 / About the practice</p>
+            <h2 id="about-title" className="section-title">
+              Attention to the work <em>between.</em>
+            </h2>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="section-lede"
+          >
+            A working portfolio by Vanessa Benipayo — an architect interested in how place, material, and clear documentation turn an idea into something people can use.
+          </motion.p>
+        </div>
 
-      <motion.div
-        aria-hidden
-        style={{ x: markX }}
-        className="absolute top-1/2 left-0 -translate-y-1/2 font-['Cormorant_Garamond'] text-[22vw] font-light leading-none text-[oklch(89.5%_0.022_60)]/25 select-none pointer-events-none whitespace-nowrap"
-      >
-        About
-      </motion.div>
+        <div className="about-layout">
+          <motion.figure
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="portrait-frame"
+          >
+            <img
+              src="/images/vanessa-portrait.jpeg"
+              alt="Portrait of Vanessa Aguilar Benipayo seated in a chair, smiling toward the camera."
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <span>Vanessa Aguilar Benipayo</span>
+              <span>Architect / Visual thinker</span>
+            </figcaption>
+          </motion.figure>
 
-      <div className="max-w-6xl mx-auto px-8 md:px-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="about-copy"
+          >
+            <p className="about-copy__lead">
+              I am a project architect at ADGO Architecture and Design Incorporated, working between early ideas and the drawings that make them buildable.
+            </p>
+            <p>
+              My day-to-day practice moves through BIM modeling, technical drawings, design coordination, and 3D visualization. Each discipline is a different way to test the same question: does the space make sense for the people and place it serves?
+            </p>
+            <a href="#contact" className="text-link">
+              Open to thoughtful collaborations <span aria-hidden="true">↗</span>
+            </a>
 
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-[420px]">
-              {/* Sharp portrait — no border radius, architectural geometry */}
-              <div className="relative overflow-hidden aspect-[3/4]">
-                <motion.div
-                  className="absolute inset-0"
-                  style={{ y: imgY, scale: 1.22 }}
-                >
-                  <img
-                    src="/images/vanessa-portrait.png"
-                    alt="Vanessa Aguilar Benipayo"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </motion.div>
-              </div>
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute bottom-0 right-0 bg-[oklch(64%_0.057_55)] px-8 py-7 text-[oklch(97.5%_0.006_65)]"
-              >
-                <p className="font-['Cormorant_Garamond'] text-2xl font-light leading-tight">BS Arch</p>
-                <p className="font-['DM_Sans'] text-[9px] tracking-[0.2em] uppercase mt-1.5 opacity-80">
-                  Class of 2024
-                </p>
-              </motion.div>
-            </div>
-          </div>
-
-          <div ref={textRef}>
-            <motion.div
-              initial={{ opacity: 0, y: 36 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[oklch(64%_0.057_55)] mb-6">
-                — The Architect
-              </p>
-
-              <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.2rem,4vw,3.4rem)] leading-[1.08] text-[oklch(14%_0.008_52)] mb-8">
-                Vanessa Aguilar<br />
-                <em className="italic text-[oklch(64%_0.057_55)]">Benipayo</em>
-              </h2>
-
-              <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[oklch(30%_0.020_52)] mb-6">
-                A graduate of Bachelor of Science in Architecture from National University Manila,
-                Batch 2024. Currently working as a project architect at HDPow Construction and
-                Development Corporation in Malolos, Bulacan, Philippines, where I handle BIM
-                modeling, technical drawings, design coordination, and 3D visualization.
-              </p>
-
-              <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[oklch(30%_0.020_52)] mb-10">
-                Proficient in Revit, AutoCAD, Lumion, Enscape, and Adobe Creative Suite — with
-                a deep appreciation for architecture rooted in culture, community, and context.
-              </p>
-
-              <div className="pt-8 border-t border-[oklch(76%_0.025_55)]/40">
-                {[
-                  { label: 'Email',    value: 'benipayovanessa@gmail.com' },
-                  { label: 'Phone',    value: '+639 949 526 454' },
-                  { label: 'Location', value: 'Malolos, Bulacan, Philippines' },
-                  { label: 'LinkedIn', value: 'linkedin.com/in/vanessabenipayo' },
-                ].map((item, i) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.45, delay: 0.28 + i * 0.06, ease: [0.23, 1, 0.32, 1] }}
-                    className="flex gap-8 items-baseline py-3 border-b border-[oklch(89.5%_0.022_60)]"
-                  >
-                    <span className="font-['DM_Sans'] text-[9px] tracking-[0.22em] uppercase text-[oklch(64%_0.057_55)] w-16 shrink-0">
-                      {item.label}
-                    </span>
-                    <span className="font-['DM_Sans'] font-light text-[13px] text-[oklch(30%_0.020_52)]">
-                      {item.value}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-
-            </motion.div>
-          </div>
+            <dl className="about-details">
+              {details.map(detail => (
+                <div key={detail.label} className="about-detail">
+                  <dt>{detail.label}</dt>
+                  <dd>{detail.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </motion.div>
         </div>
       </div>
     </section>

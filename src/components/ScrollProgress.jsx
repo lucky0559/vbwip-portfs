@@ -1,5 +1,5 @@
-import { useScrollProgress } from '../hooks/useParallax'
 import { motion } from 'framer-motion'
+import { useScrollProgress } from '../hooks/useParallax'
 
 export default function ScrollProgress() {
   const progress = useScrollProgress()
@@ -7,7 +7,7 @@ export default function ScrollProgress() {
   return (
     <motion.div
       aria-hidden="true"
-      className="fixed top-0 left-0 h-[2px] bg-[#B09070] z-[100] origin-left"
+      className="scroll-progress"
       style={{ scaleX: progress }}
     />
   )

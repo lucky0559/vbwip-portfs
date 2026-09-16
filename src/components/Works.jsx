@@ -1,192 +1,181 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from '../hooks/useParallax'
 
 const projects = [
   {
-    id: 1,
-    title: 'SINGKABAN',
-    subtitle: 'Commercial Hub with Training Facility',
+    id: '01',
+    title: 'Singkaban',
+    subtitle: 'Commercial hub with training facility',
     category: 'Thesis',
     year: '2024',
     location: 'Malolos, Bulacan',
+    role: 'Architectural thesis',
+    status: 'Featured study',
     image: '/images/singkaban-aerial.jpg',
-    size: 'large',
+    alt: 'Aerial perspective of the Singkaban commercial hub and training facility surrounded by gardens.',
+    href: '#thesis',
+    link: 'Read the study',
   },
   {
-    id: 2,
+    id: '02',
     title: 'Commercial Hub Lobby',
-    subtitle: 'Interior Render — Revit & Lumion',
+    subtitle: 'Interior visualization',
     category: 'Thesis',
     year: '2024',
     location: 'Malolos, Bulacan',
+    role: 'Revit + Lumion',
+    status: 'Featured study',
     image: '/images/commercial-hub.jpg',
-    size: 'small',
+    alt: 'Interior perspective of the Singkaban commercial hub lobby with planted seating and layered floors.',
+    href: '#thesis',
+    link: 'See project context',
   },
   {
-    id: 3,
+    id: '03',
     title: 'Training Facility',
-    subtitle: 'Exterior Render — Enscape',
+    subtitle: 'Exterior visualization',
     category: 'Thesis',
     year: '2024',
     location: 'Malolos, Bulacan',
+    role: 'Enscape',
+    status: 'Featured study',
     image: '/images/training-facility.jpg',
-    size: 'small',
+    alt: 'Exterior perspective of the Singkaban training facility in a landscaped campus.',
+    href: '#thesis',
+    link: 'See project context',
   },
   {
-    id: 4,
+    id: '04',
     title: 'Uniqlo Warehouse',
-    subtitle: 'BIM & Revit Modeling',
+    subtitle: 'BIM and Revit modeling',
     category: 'Apprentice',
     year: '2024',
     location: 'Philippines',
+    role: 'Apprentice work',
+    status: 'Professional work',
     image: '/images/uniqlo-warehouse.jpg',
-    size: 'large',
+    alt: 'Exterior view of the Uniqlo warehouse project.',
+    href: '#contact',
+    link: 'Ask about this work',
   },
   {
-    id: 5,
+    id: '05',
     title: 'Pampanga Warehouse',
-    subtitle: 'Visualization — Lumion',
+    subtitle: 'Architectural visualization',
     category: 'Apprentice',
     year: '2024',
     location: 'Pampanga',
+    role: 'Lumion',
+    status: 'Professional work',
     image: '/images/pampanga-warehouse.jpg',
-    size: 'small',
+    alt: 'Architectural visualization of the Pampanga warehouse project.',
+    href: '#contact',
+    link: 'Ask about this work',
   },
   {
-    id: 6,
+    id: '06',
     title: 'Sydney Opera House',
-    subtitle: 'Mixed Media — Watercolor & Color Pastel',
+    subtitle: 'Watercolor and color pencil study',
     category: 'Art',
     year: '2022',
-    location: 'Academic Study',
+    location: 'Academic study',
+    role: 'Mixed media',
+    status: 'Visual research',
     image: '/images/sydney-watercolor.jpg',
-    size: 'small',
+    alt: 'Close crop of a watercolor and color pencil study of the Sydney Opera House.',
+    href: '#contact',
+    link: 'Ask about this work',
   },
 ]
 
 const categories = ['All', 'Thesis', 'Apprentice', 'Art']
 
-function ProjectCard({ project, index }) {
-  const [hovered, setHovered] = useState(false)
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.75, delay: (index % 3) * 0.07, ease: [0.22, 1, 0.36, 1] }}
-      className={`relative group cursor-pointer ${
-        project.size === 'large' ? 'md:col-span-2 lg:col-span-2' : 'md:col-span-1 lg:col-span-1'
-      }`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div className="relative overflow-hidden h-[280px] md:h-[360px]">
-        <motion.img
-          src={project.image}
-          alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover"
-          animate={{ scale: hovered ? 1.05 : 1 }}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-        />
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-t from-[oklch(14%_0.008_52)]/80 via-[oklch(14%_0.008_52)]/20 to-transparent"
-          animate={{ opacity: hovered ? 1 : 0.68 }}
-          transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-        />
-
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.92 }}
-              transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute top-5 right-5 w-10 h-10 border border-[oklch(89.5%_0.022_60)]/70 flex items-center justify-center"
-            >
-              <span className="text-[oklch(89.5%_0.022_60)] text-sm">→</span>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <div className="absolute bottom-0 left-0 right-0 p-6">
-          <p className="font-['DM_Sans'] text-[10px] tracking-[0.22em] uppercase text-[oklch(76%_0.025_55)] mb-1.5">
-            {project.category} · {project.year}
-          </p>
-          <h3 className="font-['Cormorant_Garamond'] font-light text-[clamp(1.1rem,2vw,1.5rem)] text-[oklch(97.5%_0.006_65)] leading-tight mb-1">
-            {project.title}
-          </h3>
-          <p className="font-['DM_Sans'] text-[11px] text-[oklch(76%_0.025_55)]/80">{project.subtitle}</p>
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
 export default function Works() {
   const [filter, setFilter] = useState('All')
-  const { ref, inView }     = useInView()
-  const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter)
+  const { ref, inView } = useInView(0.12)
+  const filtered = filter === 'All' ? projects : projects.filter(project => project.category === filter)
 
   return (
-    <section id="works" className="bg-[oklch(97.5%_0.006_65)] py-20 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-8 md:px-16 mb-12">
-        <div ref={ref} className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+    <section id="works" className="section section--paper works-section" aria-labelledby="works-title">
+      <div className="container">
+        <div ref={ref} className="works-heading">
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[oklch(64%_0.057_55)] mb-4">
-              — Selected Works
-            </p>
-            <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.2rem,4.5vw,3.5rem)] leading-[1.05] text-[oklch(14%_0.008_52)]">
-              Projects & Works
+            <p className="eyebrow">03 / Selected work</p>
+            <h2 id="works-title" className="section-title section-title--medium">
+              A small archive of <em>decisions.</em>
             </h2>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.7, delay: 0.28 }}
-            className="flex gap-6 flex-wrap"
-          >
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className="font-['DM_Sans'] text-[11px] tracking-[0.18em] uppercase pb-1 cursor-pointer min-h-[44px]"
-                style={{
-                  borderBottom: `1px solid ${filter === cat ? 'oklch(64% 0.057 55)' : 'transparent'}`,
-                  color: filter === cat ? 'oklch(64% 0.057 55)' : 'oklch(30% 0.020 52)',
-                  transition: 'color 200ms var(--ease-out), border-color 200ms var(--ease-out), transform 160ms var(--ease-out)',
-                }}
-                onMouseOver={e => { if (filter !== cat) e.currentTarget.style.color = 'oklch(64% 0.057 55)' }}
-                onMouseOut={e => { if (filter !== cat) e.currentTarget.style.color = 'oklch(30% 0.020 52)' }}
-              >
-                {cat}
-              </button>
-            ))}
-          </motion.div>
+          <div className="works-heading__aside">
+            <p>Project context comes first: place, year, role, and status stay beside the image.</p>
+            <div className="filter-bar" role="group" aria-label="Filter selected work">
+              {categories.map(category => (
+                <button
+                  key={category}
+                  type="button"
+                  aria-pressed={filter === category}
+                  onClick={() => setFilter(category)}
+                  className={`filter-button${filter === category ? ' filter-button--active' : ''}`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            <p className="filter-status" role="status" aria-live="polite">
+              Showing {filtered.length} {filtered.length === 1 ? 'project' : 'projects'}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="px-8 md:px-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={filter}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-3 md:gap-4"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="project-index"
           >
-            {filtered.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
+            {filtered.map((project, index) => (
+              <motion.article
+                key={project.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.48, delay: index * 0.045, ease: [0.22, 1, 0.36, 1] }}
+                className="project-row"
+              >
+                <a href={project.href} className="project-row__link" aria-label={`${project.title}: ${project.link}`}>
+                  <span className="project-row__number">{project.id}</span>
+                  <div className="project-row__context">
+                    <span className="project-row__category">{project.category} / {project.status}</span>
+                    <h3>{project.title}</h3>
+                    <span className="project-row__subtitle">{project.subtitle}</span>
+                  </div>
+                  <dl className="project-row__facts">
+                    <div><dt>Place</dt><dd>{project.location}</dd></div>
+                    <div><dt>Year</dt><dd>{project.year}</dd></div>
+                    <div><dt>Role</dt><dd>{project.role}</dd></div>
+                  </dl>
+                  <div className="project-row__media">
+                    <img src={project.image} alt={project.alt} width="640" height="420" loading="lazy" />
+                  </div>
+                  <span className="project-row__action">{project.link} <span aria-hidden="true">↗</span></span>
+                </a>
+              </motion.article>
             ))}
           </motion.div>
         </AnimatePresence>
+
+        <div className="works-note">
+          <span className="works-note__line" aria-hidden="true" />
+          <p>More drawings, models, and working files available on request.</p>
+          <a href="#contact" className="text-link">Start with a question <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
   )

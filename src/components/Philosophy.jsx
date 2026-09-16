@@ -1,137 +1,55 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { useInView } from '../hooks/useParallax'
+import { motion } from 'framer-motion'
 
 const principles = [
   {
     number: '01',
-    title: 'Material Honesty',
-    body: 'I let materials speak their own language — concrete remains concrete, timber stays timber. Authenticity in material creates authenticity in space.',
+    title: 'Start with the place',
+    body: 'Climate, culture, movement, and everyday use are not context notes. They are the first design material.',
   },
   {
     number: '02',
-    title: 'Light as Architect',
-    body: 'Every building is sculpted by the light it receives. I design with light as a primary material, shaping atmosphere as much as form.',
+    title: 'Let materials be clear',
+    body: 'A surface should explain what it is doing. Honest material choices make a space easier to read and easier to care for.',
   },
   {
     number: '03',
-    title: 'Contextual Depth',
-    body: 'Architecture that ignores its place ignores its purpose. I study the land, the culture, the climate — then respond.',
+    title: 'Make the next step visible',
+    body: 'A useful drawing reduces uncertainty. Each view should help the team decide, coordinate, or build with more confidence.',
   },
   {
     number: '04',
-    title: 'Enduring Form',
-    body: 'I resist the trendy in favor of the timeless. A well-made building should feel as right in fifty years as it does today.',
+    title: 'Leave room for people',
+    body: 'Good architecture is not only a composed object. It is a setting for exchange, pause, work, and belonging.',
   },
 ]
 
-function PrincipleItem({ principle, index }) {
-  const { ref, inView } = useInView(0.2)
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 32 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      className="flex gap-10 py-14 border-b border-[oklch(76%_0.025_55)]/40 group"
-    >
-      <span
-        className="font-['Cormorant_Garamond'] text-5xl font-light text-[oklch(76%_0.025_55)] shrink-0 group-hover:text-[oklch(64%_0.057_55)] leading-none pt-1"
-        style={{ transition: 'color 300ms var(--ease-out)' }}
-      >
-        {principle.number}
-      </span>
-      <div className="pt-1">
-        <h3 className="font-['Cormorant_Garamond'] text-2xl font-light text-[oklch(14%_0.008_52)] mb-4">
-          {principle.title}
-        </h3>
-        <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[oklch(30%_0.020_52)]">
-          {principle.body}
-        </p>
-      </div>
-    </motion.div>
-  )
-}
-
-function ParallaxQuote() {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const smoothP = useSpring(scrollYProgress, { stiffness: 60, damping: 20 })
-  const bgY    = useTransform(smoothP, [0, 1], ['-12%', '12%'])
-  const quoteY = useTransform(smoothP, [0, 1], ['8%', '-8%'])
-
-  return (
-    <div ref={ref} className="relative h-[70vh] overflow-hidden">
-      <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(/images/singkaban-board.jpg)` }}
-        />
-      </motion.div>
-      <div className="absolute inset-0 bg-[oklch(14%_0.008_52)]/80" />
-      <motion.div
-        style={{ y: quoteY }}
-        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8 md:px-20"
-      >
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span className="block font-['DM_Sans'] text-[10px] tracking-[0.35em] uppercase text-[oklch(64%_0.057_55)] mb-10">
-            — On Architecture
-          </span>
-          <p className="font-['Cormorant_Garamond'] italic font-light text-[clamp(1.6rem,4vw,3.2rem)] text-[oklch(89.5%_0.022_60)] max-w-4xl leading-[1.35] mb-10">
-            "Architecture is the will of an epoch<br className="hidden md:block" /> translated into space."
-          </p>
-          <span className="font-['DM_Sans'] text-[11px] tracking-[0.25em] uppercase text-[oklch(64%_0.057_55)]">
-            Mies van der Rohe
-          </span>
-        </motion.div>
-      </motion.div>
-    </div>
-  )
-}
-
 export default function Philosophy() {
-  const { ref: headRef, inView } = useInView()
-
   return (
-    <section id="philosophy" className="relative overflow-hidden">
-      <ParallaxQuote />
-
-      <div className="bg-[oklch(97.5%_0.006_65)] py-28 md:py-36">
-        <div className="max-w-6xl mx-auto px-8 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-40">
-
-            <div ref={headRef} className="lg:sticky lg:top-36 lg:self-start pb-10">
-              <motion.div
-                initial={{ opacity: 0, y: 36 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <p className="font-['DM_Sans'] text-[11px] tracking-[0.28em] uppercase text-[oklch(64%_0.057_55)] mb-8">
-                  — Design Philosophy
-                </p>
-                <h2 className="font-['Cormorant_Garamond'] font-light text-[clamp(2.4rem,4.5vw,3.8rem)] leading-[1.1] text-[oklch(14%_0.008_52)] mb-10">
-                  Guiding<br />
-                  <em className="italic text-[oklch(64%_0.057_55)]">Principles</em>
-                </h2>
-                <p className="font-['DM_Sans'] font-light text-[14px] leading-[1.9] text-[oklch(30%_0.020_52)] max-w-xs">
-                  These convictions underpin every decision I make — from the first sketch to the final detail.
-                </p>
-              </motion.div>
-            </div>
-
-            <div>
-              {principles.map((p, i) => (
-                <PrincipleItem key={p.number} principle={p} index={i} />
-              ))}
-            </div>
-
+    <section id="philosophy" className="section section--tinted philosophy-section" aria-labelledby="philosophy-title">
+      <div className="container">
+        <div className="philosophy-heading">
+          <div>
+            <p className="eyebrow">06 / Working notes</p>
+            <h2 id="philosophy-title" className="section-title section-title--medium">Useful ideas make <em>better spaces.</em></h2>
           </div>
+          <blockquote>“The best drawing is the one that makes the next decision easier.”</blockquote>
+        </div>
+
+        <div className="principles-list">
+          {principles.map((principle, index) => (
+            <motion.article
+              key={principle.number}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.58, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              className="principle-row"
+            >
+              <span>{principle.number}</span>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
