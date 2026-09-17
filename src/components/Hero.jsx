@@ -5,7 +5,6 @@ const slides = [
   {
     type: 'video',
     src: '/videos/hero-scene.mp4',
-    poster: '/images/singkaban-hero.jpg',
     label: 'Scene study',
     meta: 'Atmospheric film · Spatial mood study · 2026',
   },
@@ -93,7 +92,6 @@ export default function Hero() {
               <motion.video
                 key={item.src}
                 src={item.src}
-                poster={item.poster}
                 autoPlay
                 muted
                 loop
