@@ -12,9 +12,9 @@ const capabilities = [
 const software = ['Revit', 'AutoCAD', 'Lumion', 'Enscape', 'Photoshop', 'Illustrator', 'SketchUp', 'Microsoft Office']
 
 const timeline = [
-  { label: 'Now', title: 'Project Architect', detail: 'ADGO Architecture and Design Incorporated · Aug 2024—present' },
+  { label: 'Now', title: 'Project Architect', detail: 'ADGO Architecture and Design Incorporated · Aug 2024–present' },
   { label: '2024', title: 'BS Architecture', detail: 'National University Manila · Dean’s Lister, 1st + 2nd term 2021' },
-  { label: '2020—22', title: 'UAP Graduate Auxiliary', detail: 'United Architects of the Philippines' },
+  { label: '2020–22', title: 'UAP Graduate Auxiliary', detail: 'United Architects of the Philippines' },
 ]
 
 export default function Skills() {
@@ -24,7 +24,7 @@ export default function Skills() {
         <div className="skills-heading">
           <div>
             <p className="eyebrow">05 / Tools at hand</p>
-            <h2 id="skills-title" className="section-title section-title--medium">Range is useful when it <em>stays connected.</em></h2>
+            <h2 id="skills-title" className="section-title section-title--medium">Range is useful when it stays connected.</h2>
           </div>
           <p className="skills-heading__note">The tools change from project to project. The through-line is the ability to move between a broad idea and a precise next step.</p>
         </div>

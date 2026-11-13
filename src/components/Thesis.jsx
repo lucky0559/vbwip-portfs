@@ -17,7 +17,7 @@ const process = [
   {
     number: '02',
     title: 'Translate the pattern',
-    body: 'Singkaban — the decorative bamboo arch associated with Bulacan — becomes a screen, rhythm, and shared identity.',
+    body: 'Singkaban, the decorative bamboo arch associated with Bulacan, becomes a screen, rhythm, and shared identity.',
   },
   {
     number: '03',
@@ -47,7 +47,7 @@ export default function Thesis() {
           transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2 id="thesis-title" className="thesis-header__title">Singkaban</h2>
-          <p className="thesis-header__lede">A proposed Malolos commercial hub with training facility — architecture for local enterprise, exchange, and pride of place.</p>
+          <p className="thesis-header__lede">A proposed Malolos commercial hub with training facility: architecture for local enterprise, exchange, and pride of place.</p>
         </motion.div>
         <a href="#contact" className="text-link text-link--light thesis-header__link">Ask about the project <span aria-hidden="true">↗</span></a>
       </div>
@@ -104,7 +104,7 @@ export default function Thesis() {
         <div className="thesis-process">
           <div className="thesis-process__heading">
             <p className="eyebrow eyebrow--light">Working method</p>
-            <h3>A drawing set that keeps the <em>why</em> close.</h3>
+            <h3>A drawing set that keeps the why close.</h3>
           </div>
           <div className="thesis-process__list">
             {process.map(item => (

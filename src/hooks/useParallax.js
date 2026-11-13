@@ -20,29 +20,18 @@ export function useScrollProgress() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    let hasSmoothScroll = false
-
-    const updateProgress = (position = window.scrollY) => {
+    const updateProgress = () => {
       const total = document.documentElement.scrollHeight - window.innerHeight
-      setProgress(total > 0 ? position / total : 0)
-    }
-
-    const onScroll = () => {
-      if (!hasSmoothScroll) updateProgress()
-    }
-
-    const onSmoothScroll = event => {
-      hasSmoothScroll = true
-      updateProgress(event.detail?.position ?? window.scrollY)
+      setProgress(total > 0 ? window.scrollY / total : 0)
     }
 
     updateProgress()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('smoothscroll', onSmoothScroll)
+    window.addEventListener('scroll', updateProgress, { passive: true })
+    window.addEventListener('resize', updateProgress)
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('smoothscroll', onSmoothScroll)
+      window.removeEventListener('scroll', updateProgress)
+      window.removeEventListener('resize', updateProgress)
     }
   }, [])
 

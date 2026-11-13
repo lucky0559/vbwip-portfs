@@ -39,8 +39,17 @@ export default function Hero() {
   const [current, setCurrent] = useState(0)
   const heroRef = useRef(null)
   const pinRef = useRef(null)
+  const videoRef = useRef(null)
   const reducedMotion = Boolean(useReducedMotion())
+  const [paused, setPaused] = useState(reducedMotion)
   const slide = slides[current]
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    if (paused) video.pause()
+    else video.play().catch(() => {})
+  }, [paused])
 
   useEffect(() => {
     let frame = 0
@@ -64,19 +73,12 @@ export default function Hero() {
       if (!frame) frame = window.requestAnimationFrame(updatePin)
     }
 
-    const handleSmoothScroll = () => {
-      if (frame) window.cancelAnimationFrame(frame)
-      updatePin()
-    }
-
     updatePin()
     window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('smoothscroll', handleSmoothScroll)
     window.addEventListener('resize', handleScroll)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('smoothscroll', handleSmoothScroll)
       window.removeEventListener('resize', handleScroll)
       if (frame) window.cancelAnimationFrame(frame)
       if (pin) pin.style.transform = ''
@@ -91,8 +93,9 @@ export default function Hero() {
             item.type === 'video' ? (
               <motion.video
                 key={item.src}
+                ref={videoRef}
                 src={item.src}
-                autoPlay
+                autoPlay={!reducedMotion}
                 muted
                 loop
                 playsInline
@@ -126,7 +129,7 @@ export default function Hero() {
         <motion.div className="hero__inner container">
         <div className="hero__topline">
           <span>VAB / 01</span>
-          <span>Working portfolio / 2024—now</span>
+          <span>Working portfolio / 2024–now</span>
         </div>
 
         <div className="hero__content">
@@ -171,7 +174,17 @@ export default function Hero() {
             ))}
           </div>
 
-          <p className="hero__scroll-note"><span aria-hidden="true">↓</span> Scroll to explore</p>
+          <div className="hero__aside">
+            <button
+              type="button"
+              className="hero__pause"
+              onClick={() => setPaused(value => !value)}
+            >
+              {paused ? 'Play background film' : 'Pause background film'}
+            </button>
+
+            <p className="hero__scroll-note"><span aria-hidden="true">↓</span> Scroll to explore</p>
+          </div>
         </div>
         </motion.div>
       </div>

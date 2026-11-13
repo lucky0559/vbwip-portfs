@@ -21,7 +21,7 @@ export default function About() {
           >
             <p className="eyebrow">01 / About the practice</p>
             <h2 id="about-title" className="section-title">
-              Attention to the work <em>between.</em>
+              Attention to the work between.
             </h2>
           </motion.div>
           <motion.p
@@ -30,7 +30,7 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             className="section-lede"
           >
-            A working portfolio by Vanessa Benipayo — an architect interested in how place, material, and clear documentation turn an idea into something people can use.
+            A working portfolio by Vanessa Benipayo, an architect interested in how place, material, and clear documentation turn an idea into something people can use.
           </motion.p>
         </div>
 

@@ -10,43 +10,16 @@ const projects = [
     category: 'Thesis',
     year: '2024',
     location: 'Malolos, Bulacan',
-    role: 'Architectural thesis',
+    role: 'Architectural thesis, Revit + Lumion + Enscape',
     status: 'Featured study',
-    image: '/images/singkaban-aerial.jpg',
-    alt: 'Aerial perspective of the Singkaban commercial hub and training facility surrounded by gardens.',
+    image: '/images/singkaban-board.jpg',
+    alt: 'Architectural study board with plans, elevations, and material notes for the Singkaban commercial hub and training facility.',
+    views: ['Study board: plans and elevations', 'Aerial view', 'Lobby interior', 'Training facility exterior'],
     href: '#thesis',
     link: 'Read the study',
   },
   {
     id: '02',
-    title: 'Commercial Hub Lobby',
-    subtitle: 'Interior visualization',
-    category: 'Thesis',
-    year: '2024',
-    location: 'Malolos, Bulacan',
-    role: 'Revit + Lumion',
-    status: 'Featured study',
-    image: '/images/commercial-hub.jpg',
-    alt: 'Interior perspective of the Singkaban commercial hub lobby with planted seating and layered floors.',
-    href: '#thesis',
-    link: 'See project context',
-  },
-  {
-    id: '03',
-    title: 'Training Facility',
-    subtitle: 'Exterior visualization',
-    category: 'Thesis',
-    year: '2024',
-    location: 'Malolos, Bulacan',
-    role: 'Enscape',
-    status: 'Featured study',
-    image: '/images/training-facility.jpg',
-    alt: 'Exterior perspective of the Singkaban training facility in a landscaped campus.',
-    href: '#thesis',
-    link: 'See project context',
-  },
-  {
-    id: '04',
     title: 'Uniqlo Warehouse',
     subtitle: 'BIM and Revit modeling',
     category: 'Apprentice',
@@ -60,7 +33,7 @@ const projects = [
     link: 'Ask about this work',
   },
   {
-    id: '05',
+    id: '03',
     title: 'Pampanga Warehouse',
     subtitle: 'Architectural visualization',
     category: 'Apprentice',
@@ -74,7 +47,7 @@ const projects = [
     link: 'Ask about this work',
   },
   {
-    id: '06',
+    id: '04',
     title: 'Sydney Opera House',
     subtitle: 'Watercolor and color pencil study',
     category: 'Art',
@@ -107,7 +80,7 @@ export default function Works() {
           >
             <p className="eyebrow">03 / Selected work</p>
             <h2 id="works-title" className="section-title section-title--medium">
-              A small archive of <em>decisions.</em>
+              A small archive of decisions.
             </h2>
           </motion.div>
 
@@ -155,6 +128,9 @@ export default function Works() {
                     <span className="project-row__category">{project.category} / {project.status}</span>
                     <h3>{project.title}</h3>
                     <span className="project-row__subtitle">{project.subtitle}</span>
+                    {project.views && (
+                      <span className="project-row__views">Views: {project.views.join(' / ')}</span>
+                    )}
                   </div>
                   <dl className="project-row__facts">
                     <div><dt>Place</dt><dd>{project.location}</dd></div>

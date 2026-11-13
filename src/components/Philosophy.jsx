@@ -30,7 +30,7 @@ export default function Philosophy() {
         <div className="philosophy-heading">
           <div>
             <p className="eyebrow">06 / Working notes</p>
-            <h2 id="philosophy-title" className="section-title section-title--medium">Useful ideas make <em>better spaces.</em></h2>
+            <h2 id="philosophy-title" className="section-title section-title--medium">Useful ideas make better spaces.</h2>
           </div>
           <blockquote>“The best drawing is the one that makes the next decision easier.”</blockquote>
         </div>

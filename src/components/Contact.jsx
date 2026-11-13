@@ -58,7 +58,7 @@ export default function Contact() {
         <div className="container contact-layout">
           <div className="contact-info">
             <p className="eyebrow eyebrow--light">Get in touch</p>
-            <h3>Let’s make the next step <em>clear.</em></h3>
+            <h3>Let’s make the next step clear.</h3>
             <p className="contact-info__copy">For studio opportunities, project conversations, or a closer look at the work, send a note directly here.</p>
             <div className="contact-details">
               {contactDetails.map(detail => (
@@ -145,7 +145,14 @@ export default function Contact() {
                 </div>
 
                 <p id="contact-delivery-note" className="contact-form__note">Submitting sends your inquiry directly to Vanessa. Your email address is used as the reply address.</p>
-                {submitError && <p id="contact-submit-error" role="alert" className="contact-form__error">{submitError}</p>}
+                {submitError && (
+                  <p id="contact-submit-error" role="alert" className="contact-form__error">{submitError}</p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="contact-form__fallback">
+                    Or write directly to <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+                  </p>
+                )}
                 <button type="submit" disabled={submitStatus === 'sending'} className="button button--oxide">
                   {submitStatus === 'sending' ? 'Sending…' : 'Send message'} <span aria-hidden="true">↗</span>
                 </button>
